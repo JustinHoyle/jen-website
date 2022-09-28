@@ -1,6 +1,6 @@
  .u-section-1 {
   min-height: 670px;
-  background-image: url("images/vbvb.jpg");
+  background-image: url("/static/vbvb.jpg");
   background-position: 50% 50%;
 }
 
@@ -11,7 +11,7 @@
 
 .u-section-1 .u-image-1 {
   min-height: 690px;
-  background-image: url("images/PSD_01.jpg");
+  background-image: url("/static/PSD_01.jpg");
   background-position: 50% 50%;
 }
 
@@ -269,7 +269,7 @@
     width: 340px;
   }
 } .u-section-3 {
-  background-image: url("images/hjhjh.jpg");
+  background-image: url("/static/hjhjh.jpg");
   background-position: 50% 50%;
 }
 
@@ -535,7 +535,7 @@
     font-size: 1.875rem;
   }
 } .u-section-4 {
-  background-image: url("images/hjhjh.jpg");
+  background-image: url("/static/hjhjh.jpg");
   background-position: 50% 50%;
 }
 
@@ -935,7 +935,7 @@
     grid-template-columns: 100%;
   }
 } .u-section-5 {
-  background-image: url("images/hjhjh.jpg");
+  background-image: url("/static/hjhjh.jpg");
   background-position: 50% 50%;
   min-height: 759px;
 }
@@ -947,7 +947,7 @@
 
 .u-section-5 .u-image-1 {
   min-height: 759px;
-  background-image: url("images/fdfddf.jpg");
+  background-image: url("/static/fdfddf.jpg");
   background-position: 50% 50%;
 }
 
@@ -1517,7 +1517,7 @@
     font-size: 1.5rem;
   }
 } .u-section-7 {
-  background-image: url("images/hjhjh.jpg");
+  background-image: url("/static/hjhjh.jpg");
   background-position: 50% 50%;
 }
 
@@ -1676,7 +1676,7 @@
     margin-bottom: -79px;
   }
 } .u-section-8 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("images/pexels-photo-9392381.jpeg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("/static/pexels-photo-9392381.jpeg");
   background-position: 50% 50%;
 }
 
