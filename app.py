@@ -1,9 +1,6 @@
-from flask import Flask, render_template, redirect, send_from_directory, flash
+from flask import Flask, render_template, redirect
 import os
-from flask import Flask, render_template, request, redirect, url_for
-from flask_wtf import FlaskForm, Form
-from wtforms import StringField, validators, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, email_validator
+from flask import Flask, render_template, request, redirect
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
@@ -19,12 +16,6 @@ mail = Mail(app)
 
  
 mail.init_app(app)
-
-class contactForm(FlaskForm):
-    name = StringField(label='Enter your Name', validators=[DataRequired()])
-    email = StringField(label='Enter a valid email address', validators=[DataRequired(), Email()])
-    message = StringField(label='Enter your message')
-    submit = SubmitField(label="Submit")
 
 @app.route("/Contact.html", methods=["GET", "POST"])
 def Contact(): 
