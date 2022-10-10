@@ -1,7 +1,53 @@
-from flask import Flask, render_template, redirect, send_from_directory
+from flask import Flask, render_template, redirect, send_from_directory, flash
+import os
+from flask import Flask, render_template, request, redirect, url_for
+from flask_wtf import FlaskForm, Form
+from wtforms import StringField, validators, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, email_validator
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
+app.secret_key = os.urandom(12).hex()
 
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config["MAIL_USERNAME"] = 'capartwebsitecontact@gmail.com'
+app.config["MAIL_PASSWORD"] = 'mhqeostpatzlkqwu'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
+
+ 
+mail.init_app(app)
+
+class contactForm(FlaskForm):
+    name = StringField(label='Name', validators=[DataRequired()])
+    email = StringField(label='Email', validators=[DataRequired(), Email()])
+    message = StringField(label='Message')
+    submit = SubmitField(label="Send")
+
+@app.route("/Contact.html", methods=["GET", "POST"])
+def Contact():
+    form = contactForm()
+ 
+    if request.method == 'POST':
+      if form.validate() == False:
+        flash('All fields are required.')
+        return render_template('Contact.html', form=form)
+      
+      else:
+        msg = Message(form.name.data, sender='contact@example.com', recipients=['capartwebsitecontact@gmail.com'])
+        msg.body = """
+        From: %s <%s>
+        %s
+        """ % (form.name.data, form.email.data, form.message.data)
+        mail.send(msg)
+  
+        return render_template('Contact.html', form=form)
+    
+    elif request.method == 'GET':
+      return render_template('Contact.html', form=form)
+  
 @app.route('/About.html')
 def About():
   return render_template('About.html')
