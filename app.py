@@ -20,7 +20,7 @@ mail.init_app(app)
 @app.route("/Contact.html", methods=["GET", "POST"])
 def Contact(): 
     if request.method == 'POST':
-      msg = Message(request.form.get('name'), sender='contact@example.com', recipients=['capartwebsitecontact@gmail.com'])
+      msg = Message(request.form.get('name'), sender='contact@example.com', recipients=['justin.b.hoyle@gmail.com'])
       msg.body = """
       From: %s <%s>
       %s
